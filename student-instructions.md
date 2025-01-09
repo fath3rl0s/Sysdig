@@ -37,13 +37,13 @@ In this lab, you will deploy a Vulnerable Struts2 workload (S2-045 / CVE-2017-56
 
 A clear distinction must be made between an OGNL payload that stays within Java’s memory (e.g., returning 1337 in a custom header) and one that spawns a system-level process (e.g., cat /etc/shadow).
 
-** Header Injection 
+### Header Injection 
 The payload executes in Struts memory, returning **1337** via the vulhub **header**.
 No new process, no file access, and no unusual network connections occur.
 Sysdig (or any runtime analysis) does not flag this as malicious because it sees no suspicious system calls.
 
 
-** Python Script (Spawning a Process)
+### Python Script (Spawning a Process)
 The payload calls `cat /etc/shadow`, causing Java to execute a new child process.
 Sysdig sees `/bin/cat /etc/shadow` and raises a **Medium** severity alert because it recognizes unexpected process execution attemtpting to access a sensitive file.
 
