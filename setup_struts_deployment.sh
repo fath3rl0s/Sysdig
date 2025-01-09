@@ -9,7 +9,7 @@
 #  3. Exposes it on NodePort 30080 so the student can access it internally
 #  4. Checks for successful deployment
 # Ensure executable permissions - `chmod +x setup_struts_deployment.sh`
-# Usage: ./setup_struts_deployment.sh
+# Usage: `./setup_struts_deployment.sh`
 #
 # Requirements:
 #  - A working kubectl context pointing to the correct cluster.
