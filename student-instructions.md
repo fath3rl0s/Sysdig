@@ -35,7 +35,7 @@ In this lab, you will deploy a Vulnerable Struts2 workload (S2-045 / CVE-2017-56
 
 ## 3. **Detection** 🔍 
 
-A clear distinction must be made between an OGNL payload that stays within Java’s memory (e.g., returning 1337 in a custom header) and one that spawns a system-level process (e.g., cat /etc/shadow).
+A clear distinction must be made between teh curl payload that stays within Java’s memory (e.g., returning 1337 in a custom header) and one that spawns a system-level process (e.g., cat /etc/shadow).
 
 ### Header Injection 
 The payload executes in Struts memory, returning **1337** via the vulhub **header**.
