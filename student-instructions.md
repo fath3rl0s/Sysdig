@@ -16,7 +16,7 @@ In this lab, you will deploy a Vulnerable Struts2 workload (S2-045 / CVE-2017-56
 
 -  Go to `http://localhost:30080` in a browser or use curl:
  
-   curl -v http://localhost:30080
+   `curl -v http://localhost:30080`
 
 -  If properly configured - You should recieve a simple file upload form!
 
