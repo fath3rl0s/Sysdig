@@ -8,7 +8,7 @@ In this lab, you will deploy a Vulnerable Struts2 workload (S2-045 / CVE-2017-56
 
 ----------
 
-## 1. Access the Struts2 Application
+## 1. Access the Struts2 Application 🤖 
 
 -  Your environment can be deployed using the `setup_struts_deployment.sh` file and a pre-configured cluster hosting the Sysdig Detection Agent.  
 
@@ -22,7 +22,7 @@ In this lab, you will deploy a Vulnerable Struts2 workload (S2-045 / CVE-2017-56
 
 -----------
 
-## 2. Exploit  
+## 2. Exploit 🦠 
 
 - **Trigger the RCE** by issuing and analyzing the output of: 
 
@@ -33,7 +33,7 @@ In this lab, you will deploy a Vulnerable Struts2 workload (S2-045 / CVE-2017-56
 
 -----------
 
-## 3. **Detection**
+## 3. **Detection** 🔍 
 
 - A clear distinction must be made here on how to detect this attack and the limitations posed with Run Time analysis.
 - The curl command executes successfully returning 1337 in our custom header "vulhub"
