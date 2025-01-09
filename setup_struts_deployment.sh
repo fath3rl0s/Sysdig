@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ###############################################################################
-# setup-script.sh
+# setup_struts_deployment.sh
 #
 # This script:
 #  1. Creates a namespace called "vulnapp"
