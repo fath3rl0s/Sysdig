@@ -71,7 +71,7 @@ spec:
       nodePort: 30080
 EOF
 
-echo "[INFO] -- Waiting for the pod to be in 'Running' state... "
+echo "[INFO] -- Waiting for the pod to be in a 'Running' state... "
 kubectl rollout status deployment/${DEPLOYMENT_NAME} -n ${NAMESPACE} --timeout=120s
 
 echo "[INFO] -- Success!"
