@@ -35,12 +35,22 @@ In this lab, you will deploy a Vulnerable Struts2 workload (S2-045 / CVE-2017-56
 
 ## 3. **Detection** 🔍 
 
-- A clear distinction must be made here on how to detect this attack and the limitations posed with Run Time analysis.
-- The curl command executes successfully returning **1337** in our custom header **"vulhub"**
-- However, it will not be picked up in **Sysdig** as no process was spawned, no file was accessed, and no network anomalies were detected.
-- On the otherhand, the python script does yield a **Medium** severity in Sysdig.
-- In Sysdig: Navigate to "**Threats**" -->  "**Sysdig Runtime Notable Events**" --> **Event ID: 18191e49f34866df273474732a500c25**
-- In short, a header injection will not trigger in Sysdig but a new system process such as 'cat' will.
+A clear distinction must be made between an OGNL payload that stays within Java’s memory (e.g., returning 1337 in a custom header) and one that spawns a system-level process (e.g., cat /etc/shadow).
+
+** Header Injection 
+The payload executes in Struts memory, returning **1337** via the vulhub **header**.
+No new process, no file access, and no unusual network connections occur.
+Sysdig (or any runtime analysis) does not flag this as malicious because it sees no suspicious system calls.
+
+
+** Python Script (Spawning a Process)
+The payload calls `cat /etc/shadow`, causing Java to execute a new child process.
+Sysdig sees `/bin/cat /etc/shadow` and raises a **Medium** severity alert because it recognizes unexpected process execution attemtpting to access a sensitive file.
+
+Verify in Sysdig Secure:
+Go to **Threats → Sysdig Runtime Notable Events**.
+Find the corresponding Event ID (e.g., 18191e49f34866df273474732a500c25).
+In summary, a simple header injection won’t trigger Sysdig, but any payload that spawns a process or accesses sensitive resources will. This showcases early detection and the need for refined rulesets within your tools!
 
 
 
