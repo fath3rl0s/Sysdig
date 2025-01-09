@@ -6,7 +6,7 @@
 # This script:
 #  1. Creates a namespace called "vulnapp"
 #  2. Deploys a vulnerable Apache Struts2 (S2-045) application
-#  3. Exposes it on NodePort 30080 so the student can access it internally
+#  3. Exposes it on NodePort 30080 so the student can access it internally on localhost
 #  4. Checks for successful deployment
 # Ensure executable permissions - chmod +x setup_struts_deployment.sh
 # Usage: ./setup_struts_deployment.sh
