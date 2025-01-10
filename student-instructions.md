@@ -46,11 +46,14 @@ Sysdig (or any runtime analysis) does not flag this as malicious because it sees
 ### Python Script (Spawning a Process)
 The payload calls `cat /etc/shadow`, causing Java to execute a new child process.
 Sysdig sees `/bin/cat /etc/shadow` and raises a **Medium** severity alert because it recognizes unexpected process execution attemtpting to access a sensitive file.
+<img width="804" alt="Screenshot 2025-01-09 at 7 21 02 PM" src="https://github.com/user-attachments/assets/c3be3188-2cd3-4819-88d5-0875c7586373" />
 
 ### Verify in Sysdig Secure:
 Go to **Threats → Sysdig Runtime Notable Events**.
 Find the corresponding Event ID (e.g., 18191e49f34866df273474732a500c25).
 In summary, a simple header injection won’t trigger Sysdig, but any payload that spawns a process or accesses sensitive resources will. This showcases early detection and the need for refined rulesets within your tools!
+
+
 
 
 
